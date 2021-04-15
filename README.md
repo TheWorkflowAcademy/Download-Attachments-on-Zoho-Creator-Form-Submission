@@ -22,7 +22,6 @@ createrID = input.ID;
 ### 2. Download the Attachment
 Once you have the Creator form record ID, use the API call below to download the attachment in your script.
 ```javascript
-//Download the resume file
 resp = invokeurl
 [
 	url :"https://<base_url>/api/v2/<account_owner_name>/<app_link_name>/report/<report_link_name>/<record_ID>/<field_link_name>/download"
