@@ -1,0 +1,32 @@
+// Get the Zoho Creator form record ID
+createrID = input.ID;
+
+// Download the attachment file
+resp = invokeurl
+[
+	url :"https://<base_url>/api/v2/<account_owner_name>/<app_link_name>/report/<report_link_name>/<record_ID>/<field_link_name>/download"
+	type :GET
+	connection:"<creator_connection>"
+];
+info resp;
+
+// Upload to Workdrive
+upload = zoho.workdrive.uploadFile(resp, <folder_id>, <file_name>, <override_name_exist>, <workdrive_connection>);
+info upload;
+
+// Attach to CRM record
+attach = zoho.crm.attachFile(<module_name>,<record_id>,resp);
+info attach;
+
+// Send Attachment via Email
+sendmail
+[
+	from: <from_address>
+	to: <to_address>
+	cc: <cc>
+	bcc: <bcc>
+	reply to: <reply_to_address>
+	subject: <subject>
+	message: <message>
+	attachments: file: resp
+]
