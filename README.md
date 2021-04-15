@@ -36,7 +36,8 @@ At this point, you already have the attachment downloaded. You can now choose to
 
 * Upload to Zoho WorkDrive Folder
 ```javascript
-<response> = zoho.workdrive.uploadFile(resp, <folder_id>, <file_name>, <override_name_exist>, <workdrive_connection>);
+upload = zoho.workdrive.uploadFile(resp, <folder_id>, <file_name>, <override_name_exist>, <workdrive_connection>);
+info upload;
 ```
 
 * Attach to Zoho CRM Record
@@ -45,7 +46,7 @@ attach = zoho.crm.attachFile(<module_name>,<record_id>,resp);
 info attach;
 ```
 
-* Send Email as Attachment
+* Send Attachment via Email
 ```javascript
 sendmail
 [
